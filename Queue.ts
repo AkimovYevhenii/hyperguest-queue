@@ -1,5 +1,14 @@
 import { Message } from './Database';
 
+/**
+ * Queue processes Message instances in FIFO order with key-based locking.
+ *
+ * We rely on Message.key to prevent concurrent processing of messages sharing the same key.
+ * Locked keys are tracked in the `inProgress` map.
+ * - `Dequeue` skips any message whose key is currently in `inProgress`, returning only unlocked messages.
+ * - `Confirm` removes the key from `inProgress` and deletes the message from the queue,
+ *   allowing future messages with that key to be delivered.
+ */
 export class Queue {
   private messages: Message[];
   private inProgress: Map<

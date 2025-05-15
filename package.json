@@ -1,0 +1,32 @@
+{
+  "name": "queue-test-task",
+  "version": "1.0.0",
+  "description": "HyperGuest test task",
+  "main": "main.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"**/*.ts\""
+  },
+  "author": "yevhenii.akimov@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.15.18",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "avoid"
+  }
+}
